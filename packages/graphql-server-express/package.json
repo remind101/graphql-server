@@ -1,6 +1,6 @@
 {
-  "name": "graphql-server-express",
-  "version": "0.4.3",
+  "name": "@remind/graphql-server-express",
+  "version": "0.4.3-p1",
   "description": "Production-ready Node.js GraphQL server for Express and Connect",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apollostack/graphql-server/tree/master/packages/graphql-server-express"
+    "url": "https://github.com/remind101/graphql-server/tree/master/packages/graphql-server-express"
   },
   "keywords": [
     "GraphQL",
@@ -22,7 +22,7 @@
   "author": "Jonas Helfer <jonas@helfer.email>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/apollostack/graphql-server/issues"
+    "url": "https://github.com/remind101/graphql-server/issues"
   },
   "homepage": "https://github.com/apollostack/graphql-server#readme",
   "dependencies": {

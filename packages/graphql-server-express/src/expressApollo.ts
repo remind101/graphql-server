@@ -67,8 +67,7 @@ export function graphqlExpress(options: GraphQLOptions | ExpressGraphQLOptionsFu
       b = [b];
     }
 
-    let responses: Array<graphql.GraphQLResult> = [];
-    for (let requestParams of b) {
+    const requests = b.map(async (requestParams) => {
       try {
         const query = requestParams.query;
         const operationName = requestParams.operationName;
@@ -111,11 +110,13 @@ export function graphqlExpress(options: GraphQLOptions | ExpressGraphQLOptionsFu
           params = optionsObject.formatParams(params);
         }
 
-        responses.push(await runQuery(params));
+        return await runQuery(params);
       } catch (e) {
-        responses.push({ errors: [formatErrorFn(e)] });
+        return { errors: [formatErrorFn(e)] };
       }
-    }
+    });
+
+    const responses: graphql.GraphQLResult[] = await Promise.all(requests);
 
     res.setHeader('Content-Type', 'application/json');
     if (isBatch) {
